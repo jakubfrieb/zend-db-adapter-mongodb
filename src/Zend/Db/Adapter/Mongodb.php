@@ -15,7 +15,7 @@ class Zend_Db_Adapter_Mongodb extends Zend_Db_Adapter_Abstract
      */
     protected $_options = array(
         "connect" => true,
-        "timeout" => 5000,
+        "connectTimeoutMS" => 5000,
     );
 
     /**
