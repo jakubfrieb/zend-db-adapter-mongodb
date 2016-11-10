@@ -58,7 +58,7 @@ class Zend_Db_Adapter_Mongodb extends Zend_Db_Adapter_Abstract
             }
         }
 
-        $this->_serverClass = class_exists('\MongoClient') ? '\MongoClient' : '\Mongo';
+        $this->_serverClass = class_exists('MongoDB\Client') ? 'MongoDB\Client' : false;
 
         $this->_options = array_merge($this->_options, $config);
         unset($this->_options['host'], $this->_options['port'], $this->_options['dbname']);
@@ -106,7 +106,8 @@ class Zend_Db_Adapter_Mongodb extends Zend_Db_Adapter_Abstract
             $this->_config['db'] = $db;
         }
 
-        $this->_db = $conn->selectDB($this->getDbName());
+
+        $this->_db = $conn->{$this->getDbName()};
 
         return $this->_db;
     }
