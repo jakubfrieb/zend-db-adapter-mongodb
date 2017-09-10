@@ -64,7 +64,7 @@ class Zend_Db_Adapter_Mongodb extends Zend_Db_Adapter_Abstract
         unset($this->_options['host'], $this->_options['port'], $this->_options['dbname']);
 
         $this->_connection = new $this->_serverClass(
-            'mongodb://' . $config['host'] . ':' . $config['port'],
+            'mongodb://' . $config['host'] . ':' . $config['port'].'/'.$config['db'],
             $this->_options
         );
 
